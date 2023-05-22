@@ -127,7 +127,7 @@ const Modal: React.FC<ModalProps>= ({
             {/* end header */}
             {/* body */}
             <div className=" relative p-6 flex-auto ">
-
+                {body}
             </div>
             {/* End Body */}
             {/* Footer */}
