@@ -1,13 +1,14 @@
 "use client";
 import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
 import {FcGoogle} from 'react-icons/fc';
+import { AiFillGithub } from "react-icons/ai";
 import {useCallback, useState} from 'react';
 import { FieldValues, SubmitHandler, useForm} from 'react-hook-form';
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
+import Button from "../Button";
 
 
 const RegisterModal = () => {
@@ -38,6 +39,10 @@ const RegisterModal = () => {
             setIsLoading(false)
         })
     }
+
+    const onToggle = useCallback(() => {
+        registerModal.onClose();
+    }, [registerModal])
 
     const bodyContent = (
         <div>
@@ -71,10 +76,41 @@ const RegisterModal = () => {
     )
 
     const footerContent = (
-        <div>
-            Footer Content
+        <div className="flex flex-col gap-4 mt-3">
+          <hr />
+          <Button 
+            outline 
+            label="Continue with Google"
+            icon={FcGoogle}
+            onClick={() => ({})} 
+          />
+          <Button 
+            outline 
+            label="Continue with Github"
+            icon={AiFillGithub}
+            onClick={() => ({})} 
+          />
+          <div 
+            className="
+              text-neutral-500 
+              text-center 
+              mt-4 
+              font-light
+            "
+          >
+            <p>Already have an account?
+              <span 
+                onClick={onToggle} 
+                className="
+                  text-neutral-800
+                  cursor-pointer 
+                  hover:underline
+                "
+                > Log in</span>
+            </p>
+          </div>
         </div>
-    )
+      )
 
     return (
         <div>
