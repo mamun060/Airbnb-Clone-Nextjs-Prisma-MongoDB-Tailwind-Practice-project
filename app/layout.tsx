@@ -2,8 +2,9 @@ import ClientOnly from './components/ClientOnly';
 import RegisterModal from './components/modals/RegisterModal';
 import Navbar from './components/navbar/Navbar';
 import './globals.css';
-import { Nunito } from '@next/font/google';
 import ToasterProvider from './providers/ToasterProvider';
+import LoginModal from './components/modals/LoginModal';
+import {Nunito} from 'next/font/google'
 
 export const metaData = {
   title: 'Airbnb Clone',
@@ -25,6 +26,7 @@ export default function RootLayout({
         <ClientOnly>
           <ToasterProvider />
           <RegisterModal />
+          <LoginModal />
           <Navbar />
         </ClientOnly>
         {children}
