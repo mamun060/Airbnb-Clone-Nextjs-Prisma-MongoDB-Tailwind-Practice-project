@@ -6,6 +6,7 @@ import ToasterProvider from './providers/ToasterProvider';
 import LoginModal from './components/modals/LoginModal';
 import {Nunito} from 'next/font/google'
 import getCurrentUser from './actions/getCurrentUser';
+import RentModal from './components/modals/RentModal';
 
 export const metaData = {
   title: 'Airbnb Clone',
@@ -26,6 +27,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
+          <RentModal />
           <ToasterProvider />
           <RegisterModal />
           <LoginModal />
